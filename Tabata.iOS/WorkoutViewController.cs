@@ -39,12 +39,9 @@ namespace Tabata.iOS
 
 		public Tabata.Shared.Tabata CreateTabata()
 		{
-			var newTabata = new Tabata.Shared.Tabata ();
-
-			newTabata.WorkInterval = int.Parse (intervalText.Text);
-			newTabata.RestInterval = int.Parse (restText.Text);
-			newTabata.NumberOfSets = int.Parse (setsText.Text);
-
+			var newTabata = new Tabata.Shared.Tabata (int.Parse (intervalText.Text),
+				                int.Parse (restText.Text), int.Parse (setsText.Text));
+				
 			return newTabata;
 		}
 	}
