@@ -1,11 +1,21 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Timers;
 
 namespace Tabata.Shared
 {
 	public class Tabata
 	{
+		Timer _workTimer;
+		Timer _restTimer;
+
+		int _currentWorkSecond;
+		int _currentRestSecond;
+		int _currentSet;
+
+		#region Properties 
+
 		public int RestInterval {
 			get;
 			set;
@@ -20,15 +30,80 @@ namespace Tabata.Shared
 			get;
 			set;
 		}
-	
+
 		public DateTime TabataDate {
 			get;
 			set;
 		}
+			
+		#endregion
 
 		public Tabata ()
 		{
+			
 		}
+
+		public Tabata (int workInterval, int restInterval, int numberOfSets)
+		{
+			this.WorkInterval = workInterval;
+			this.RestInterval = restInterval;
+			this.NumberOfSets = numberOfSets;
+
+			_currentSet = 1;
+		}
+
+		public void StartTabata(Action<string> workUpdate, Action<string> restUpdate, Action<bool, int> switchState, Action finishedUpdate)
+		{
+			_workTimer = new Timer (1000);
+			_restTimer = new Timer (1000);
+
+			_currentWorkSecond = this.WorkInterval;
+
+			_workTimer.Elapsed += (object sender, ElapsedEventArgs e) => {
+				_currentWorkSecond -= 1;
+
+				// Update the display
+				workUpdate(_currentWorkSecond.ToString());
+
+				if (_currentWorkSecond == 0)
+				{
+					_workTimer.Stop();
+					_currentRestSecond = this.RestInterval;
+
+					switchState(false, _currentSet);
+
+					_restTimer.Start();
+				}					
+			};
+
+			_restTimer.Elapsed += (object sender, ElapsedEventArgs e) => {
+				_currentRestSecond -= 1;
+
+				restUpdate(_currentRestSecond.ToString());
+
+				if (_currentRestSecond == 0) {
+					_restTimer.Stop();
+					_currentSet += 1;
+
+					if (_currentSet > this.NumberOfSets)
+					{
+						finishedUpdate();
+					}
+					else {
+						_restTimer.Stop();
+						_currentWorkSecond = this.WorkInterval;
+
+						switchState(true, _currentSet);
+
+						_workTimer.Start();
+					}
+				}
+			};
+
+			_workTimer.Start ();
+		}
+
+
 
 		public void SaveTabata()
 		{
