@@ -1,14 +1,52 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<Button  
-    android:id="@+id/myButton"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Enter Work Time"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/workTimeText" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/workTime"
+        android:text="5" />
+    <TextView
+        android:text="Enter Rest Time"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/restTimeText" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/restTime"
+        android:text="3" />
+    <TextView
+        android:text="Enter Number of Sets"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setsText" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberOfSets"
+        android:text="3" />
+    <Button
+        android:text="Workout!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/workout" />
+    <Button
+        android:text="View History"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewHistory" />
 </LinearLayout>
-

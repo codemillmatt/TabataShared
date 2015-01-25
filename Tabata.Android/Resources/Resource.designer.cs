@@ -60,8 +60,41 @@ namespace Tabata.Android
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f05000b
+			public const int doneButton = 2131034123;
+			
+			// aapt resource value: 0x7f050005
+			public const int numberOfSets = 2131034117;
+			
+			// aapt resource value: 0x7f050003
+			public const int restTime = 2131034115;
+			
+			// aapt resource value: 0x7f050002
+			public const int restTimeText = 2131034114;
+			
+			// aapt resource value: 0x7f050004
+			public const int setsText = 2131034116;
+			
+			// aapt resource value: 0x7f05000a
+			public const int textView1 = 2131034122;
+			
+			// aapt resource value: 0x7f050009
+			public const int timeLeft = 2131034121;
+			
+			// aapt resource value: 0x7f050007
+			public const int viewHistory = 2131034119;
+			
+			// aapt resource value: 0x7f050001
+			public const int workTime = 2131034113;
+			
 			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			public const int workTimeText = 2131034112;
+			
+			// aapt resource value: 0x7f050006
+			public const int workout = 2131034118;
+			
+			// aapt resource value: 0x7f050008
+			public const int workoutState = 2131034120;
 			
 			static Id()
 			{
@@ -78,6 +111,9 @@ namespace Tabata.Android
 			
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int WorkoutLayout = 2130903041;
 			
 			static Layout()
 			{
