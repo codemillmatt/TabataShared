@@ -25,18 +25,14 @@ namespace Tabata.Android
 
 			workout.Click += (object sender, EventArgs e) => {
 				var intent = new Intent(this, typeof(WorkoutActivity));
-
-				var workoutInfoArrayList = new List<int>();
-
+							
 				TextView workoutTime = FindViewById<TextView>(Resource.Id.workTime);
 				TextView restTime = FindViewById<TextView>(Resource.Id.restTime);
 				TextView numOfSets = FindViewById<TextView>(Resource.Id.numberOfSets);
 
-				workoutInfoArrayList.Add(int.Parse(workoutTime.Text));
-				workoutInfoArrayList.Add(int.Parse(restTime.Text));
-				workoutInfoArrayList.Add(int.Parse(numOfSets.Text));
-
-				intent.PutExtra("tabata_info", workoutInfoArrayList.ToArray());
+				intent.PutExtra("workout_time", int.Parse(workoutTime.Text));
+				intent.PutExtra("rest_time", int.Parse(restTime.Text));
+				intent.PutExtra("number_sets", int.Parse(numOfSets.Text));
 
 				StartActivity(intent);
 			};

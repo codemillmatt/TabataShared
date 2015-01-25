@@ -72,11 +72,11 @@ namespace Tabata.Android
 			// aapt resource value: 0x7f050002
 			public const int restTimeText = 2131034114;
 			
+			// aapt resource value: 0x7f05000a
+			public const int setInfo = 2131034122;
+			
 			// aapt resource value: 0x7f050004
 			public const int setsText = 2131034116;
-			
-			// aapt resource value: 0x7f05000a
-			public const int textView1 = 2131034122;
 			
 			// aapt resource value: 0x7f050009
 			public const int timeLeft = 2131034121;

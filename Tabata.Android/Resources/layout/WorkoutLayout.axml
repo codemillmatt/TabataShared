@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/workoutState"
         android:gravity="center"
-        android:textSize="30pt" />
+        android:textSize="50dp" />
     <TextView
         android:text="10"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -26,7 +26,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
+        android:id="@+id/setInfo"
         android:gravity="center"
         android:layout_marginTop="20dp" />
     <Button
