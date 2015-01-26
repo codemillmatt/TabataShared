@@ -37,13 +37,13 @@ namespace Tabata.Android
 				StartActivity(intent);
 			};
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-			//Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-//			button.Click += delegate {
-//				button.Text = string.Format ("{0} clicks!", count++);
-//			};
+			Button history = FindViewById<Button> (Resource.Id.viewHistory);
+
+			history.Click += (object sender, EventArgs e) => {
+				var intent = new Intent(this, typeof(OldTabatas));
+
+				StartActivity(intent);
+			};
 		}
 	}
 }

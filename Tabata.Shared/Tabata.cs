@@ -87,6 +87,8 @@ namespace Tabata.Shared
 
 					if (_currentSet > this.NumberOfSets)
 					{
+						SaveTabata();
+
 						finishedUpdate();
 					}
 					else {
@@ -120,7 +122,8 @@ namespace Tabata.Shared
 			fileName = Path.Combine(docPath.Path, "data.csv");
 
 			#elif __ANDROID__
-			fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments, "data.csv");
+			fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"data.csv");
+			//fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments, "data.csv"));
 			#endif 
 
 			if (File.Exists(fileName)) {
@@ -149,7 +152,7 @@ namespace Tabata.Shared
 			fileName = Path.Combine(docPath.Path, "data.csv");
 
 			#elif __ANDROID__
-			fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments, "data.csv");
+			fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "data.csv");
 			#endif 
 
 			if (File.Exists (fileName)) {
