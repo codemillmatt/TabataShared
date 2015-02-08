@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="Workout!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/currentState"
+        android:textSize="75dp"
+        android:gravity="center" />
+    <TextView
+        android:text="10"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeLeft"
+        android:gravity="center"
+        android:typeface="sans"
+        android:textSize="200dp" />
+    <TextView
+        android:text="Set 1 of 2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setsText"
+        android:gravity="center"
+        android:layout_gravity="bottom" />
+</LinearLayout>
