@@ -14,7 +14,7 @@ using Tabata.Shared;
 
 namespace Tabata.Android
 {
-	public class TabataAdapter : global::Android.Widget.BaseAdapter<Tabata.Shared.Tabata>
+	public class TabataAdapter : global::Android.Widget.BaseAdapter<Tabata.Shared.TabataWorkout>
 	{
 		AllTabatas items;
 		Activity context;
@@ -30,7 +30,7 @@ namespace Tabata.Android
 			return position;
 		}
 
-		public override Tabata.Shared.Tabata this[int position] {  
+		public override Tabata.Shared.TabataWorkout this[int position] {  
 			get { return items[position]; }
 		}
 

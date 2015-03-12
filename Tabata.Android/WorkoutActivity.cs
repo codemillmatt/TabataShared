@@ -17,7 +17,7 @@ namespace Tabata.Android
 	[Activity (Label = "WorkoutActivity")]			
 	public class WorkoutActivity : Activity
 	{
-		Tabata.Shared.Tabata _currentTabata;
+		Tabata.Shared.TabataWorkout _currentTabata;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -35,7 +35,7 @@ namespace Tabata.Android
 			var timeLeftLabel = FindViewById<TextView> (Resource.Id.timeLeft);
 
 			// Create the tabata object
-			_currentTabata = new Tabata.Shared.Tabata (workoutTime, restTime, numOfSets);
+			_currentTabata = new Tabata.Shared.TabataWorkout (workoutTime, restTime, numOfSets);
 
 			setInfo.Text = string.Format ("1 of {0} sets", _currentTabata.NumberOfSets);
 			timeLeftLabel.Text = _currentTabata.WorkInterval.ToString ();

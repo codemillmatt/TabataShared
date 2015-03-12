@@ -5,7 +5,7 @@ using System.Timers;
 
 namespace Tabata.Shared
 {
-	public class Tabata
+	public partial class TabataWorkout : ITabataFileInfo
 	{
 		Timer _workTimer;
 		Timer _restTimer;
@@ -38,12 +38,12 @@ namespace Tabata.Shared
 			
 		#endregion
 
-		public Tabata ()
+		public TabataWorkout ()
 		{
 			
 		}
 
-		public Tabata (int workInterval, int restInterval, int numberOfSets)
+		public TabataWorkout (int workInterval, int restInterval, int numberOfSets)
 		{
 			this.WorkInterval = workInterval;
 			this.RestInterval = restInterval;
@@ -104,27 +104,12 @@ namespace Tabata.Shared
 
 			_workTimer.Start ();
 		}
-
-
-
+			
 		public void SaveTabata()
 		{
 			this.TabataDate = DateTime.Now;
 
-			string fileName = string.Empty;
-
-			#if __IOS__
-				// Open the documents folder and write to the file
-			var docPath = MonoTouch.Foundation.NSFileManager.DefaultManager.GetUrls(
-				MonoTouch.Foundation.NSSearchPathDirectory.DocumentDirectory,
-				MonoTouch.Foundation.NSSearchPathDomain.User)[0];
-
-			fileName = Path.Combine(docPath.Path, "data.csv");
-
-			#elif __ANDROID__
-			fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"data.csv");
-			//fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments, "data.csv"));
-			#endif 
+			string fileName = this.GetFileName ();
 
 			if (File.Exists(fileName)) {
 				File.AppendAllText(fileName, string.Format ("{0},{1},{2},{3},{4}", TabataDate.ToShortDateString (), 
@@ -135,25 +120,17 @@ namespace Tabata.Shared
 					this.NumberOfSets, this.WorkInterval, this.RestInterval, Environment.NewLine));
 			}
 		}
+			
 	}
+		
 
-	public class AllTabatas : List<Tabata>
+	public partial class AllTabatas : List<TabataWorkout>, ITabataFileInfo 
 	{
 		public void PopulateTabatas()
 		{
-			string fileName = string.Empty;
+			this.Clear ();
 
-			#if __IOS__
-			// Open the documents folder and write to the file
-			var docPath = MonoTouch.Foundation.NSFileManager.DefaultManager.GetUrls(
-				MonoTouch.Foundation.NSSearchPathDirectory.DocumentDirectory,
-				MonoTouch.Foundation.NSSearchPathDomain.User)[0];
-
-			fileName = Path.Combine(docPath.Path, "data.csv");
-
-			#elif __ANDROID__
-			fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "data.csv");
-			#endif 
+			string fileName = this.GetFileName ();
 
 			if (File.Exists (fileName)) {
 				var allLines = File.ReadAllLines (fileName);
@@ -161,7 +138,7 @@ namespace Tabata.Shared
 				foreach (var line in allLines) {
 					var individParts = line.Split(new Char[] { ',' });
 
-					Tabata newTabata = new Tabata ();
+					TabataWorkout newTabata = new TabataWorkout ();
 					newTabata.TabataDate = DateTime.Parse (individParts [0]);
 					newTabata.NumberOfSets = int.Parse (individParts [1]);
 					newTabata.WorkInterval = int.Parse (individParts [2]);

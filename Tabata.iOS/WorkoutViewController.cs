@@ -37,9 +37,9 @@ namespace Tabata.iOS
 				intervalVC.CurrentTabata = CreateTabata ();
 		}
 
-		public Tabata.Shared.Tabata CreateTabata()
+		public Tabata.Shared.TabataWorkout CreateTabata()
 		{
-			var newTabata = new Tabata.Shared.Tabata (int.Parse (intervalText.Text),
+			var newTabata = new Tabata.Shared.TabataWorkout (int.Parse (intervalText.Text),
 				                int.Parse (restText.Text), int.Parse (setsText.Text));
 				
 			return newTabata;

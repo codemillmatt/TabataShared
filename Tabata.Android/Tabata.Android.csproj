@@ -51,6 +51,7 @@
     <Compile Include="WorkoutActivity.cs" />
     <Compile Include="OldTabatas.cs" />
     <Compile Include="TabataAdapter.cs" />
+    <Compile Include="Partial\TabataWorkout.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -65,4 +66,7 @@
   </ItemGroup>
   <Import Project="..\Tabata.Shared\Tabata.Shared.projitems" Label="Shared" Condition="Exists('..\Tabata.Shared\Tabata.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Partial\" />
+  </ItemGroup>
 </Project>

@@ -126,6 +126,7 @@
     <Compile Include="intervalViewController.designer.cs">
       <DependentUpon>intervalViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Partial\TabataWorkout.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -139,4 +140,7 @@
   </ItemGroup>
   <Import Project="..\Tabata.Shared\Tabata.Shared.projitems" Label="Shared" Condition="Exists('..\Tabata.Shared\Tabata.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Partial\" />
+  </ItemGroup>
 </Project>

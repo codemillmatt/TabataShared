@@ -8,6 +8,7 @@ namespace Tabata.iOS
 	partial class historyViewController : UITableViewController
 	{
 		Tabata.Shared.AllTabatas _allTabatas;
+		bool _appearedAlready = false;
 
 		public historyViewController (IntPtr handle) : base (handle)
 		{
@@ -23,6 +24,21 @@ namespace Tabata.iOS
 
 			this.TableView.Source = new TabataSource (_allTabatas);
 		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			if (_appearedAlready) {
+				_allTabatas.PopulateTabatas ();
+
+				this.TableView.ReloadData ();
+			}
+
+
+			_appearedAlready = true;
+		}
+
 	}
 
 	public class TabataSource : UITableViewSource
@@ -48,7 +64,7 @@ namespace Tabata.iOS
 				cell = new UITableViewCell (UITableViewCellStyle.Subtitle, _cellIdentifer);
 			}
 
-			var currentTabata = _allTabatas [indexPath.Row] as Tabata.Shared.Tabata;
+			var currentTabata = _allTabatas [indexPath.Row] as Tabata.Shared.TabataWorkout;
 
 			cell.TextLabel.Text = string.Format ("{0} - {1} sets",
 				currentTabata.TabataDate.ToShortDateString (), currentTabata.NumberOfSets);

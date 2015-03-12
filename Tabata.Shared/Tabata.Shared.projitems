@@ -9,6 +9,7 @@
     <Import_RootNamespace>Tabata.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Tabata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TabataWorkout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ITabataFileInfo.cs" />
   </ItemGroup>
 </Project>
