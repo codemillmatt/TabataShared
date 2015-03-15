@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 
+
 namespace Tabata.Shared
 {
 	public partial class TabataWorkout
@@ -9,6 +10,7 @@ namespace Tabata.Shared
 		{
 			return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"data.csv");
 		}
+			
 	}
 
 	public partial class AllTabatas

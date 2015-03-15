@@ -97,6 +97,9 @@ namespace Tabata.Shared
 
 						switchState(true, _currentSet);
 
+						// Buzz the phone to tell them to get back to work!
+						BuzzPhone();
+
 						_workTimer.Start();
 					}
 				}
@@ -120,7 +123,9 @@ namespace Tabata.Shared
 					this.NumberOfSets, this.WorkInterval, this.RestInterval, Environment.NewLine));
 			}
 		}
-			
+
+		partial void BuzzPhone();
+
 	}
 		
 
